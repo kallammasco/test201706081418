@@ -1,0 +1,23 @@
+<?php version="1.0" encoding="UTF-8" ?>
+<widget
+	xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap/ns/1.0"
+	id			= "com.wordpress.khaledallam"
+	versionCode	= "1"
+	version		= "0.0.1">
+
+	<name>JQM Test App</name>
+
+	<description>
+		Example application for live demo.
+	</description>
+
+	<author
+		href="http://khaledallam.wordpress.com"
+		email="kallam.masco@gmail.com">
+		Khaled Allam
+	</author>
+
+	<preference name="permissions" value="none" />
+
+</widget>
