@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Touch gesture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="screen.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+    <script type="text/javascript" charset="utf-8">
+
+        // Seed the data store
+        var todos = [
+            {'id':'1', 'content':'This is my first todo.'},
+            {'id':'2', 'content':'This is my second todo.'},
+            {'id':'3', 'content':'This is my third todo.'},
+            {'id':'4', 'content':'This is my fourth todo.'},
+            {'id':'5', 'content':'This is my fifth todo.'}
+        ];
+
+        // Init some globals
+        var w, d, b, target, repeat;
+
+        // Define event handlers
+        function handleChange(e) {
+            var id = e.target.getAttribute('data-id');
+            for(var i=0; i<todos.length; i++){
+                if(todos[i].id == id){
+                    todos[i].content = e.target.value;
+                    break;
+                }
+            }
+        }
+
+        // Data and DOM manipulation functions
+        function renderTodo(todo, index, classname) {
+            var t = d.createElement('textarea');
+            t.value = todo.content;
+            t.setAttribute('data-id', todo.id);
+            t.className = classname || '';
+            var elements = d.getElementsByTagName('textarea');
+            if(elements.length == 0){ // There are no textareas on the page
+                b.appendChild(t); // Just append to the body
+            }else{
+                b.insertBefore(t, elements[index]); // Render before element identified by index
+            }
+            return t; // Return element to the calling function in case it needs to act on it.
+        }
+
+        function renderTools(){
+            b.innerHTML = '';
+            for(var i=0; i<todos.length; i++){
+                renderTodo(todos[i], i);
+            }
+        }
+
+        // let's rock!
+        window.onload = function () {
+
+            // Cache some common elements globally
+            w = window;
+            d = document;
+            b = d.body;
+
+            // Attach event handlers
+            b.addEventListener('change', handleChange, false);
+
+            // Render any existing todos
+            renderTools();
+
+        }
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

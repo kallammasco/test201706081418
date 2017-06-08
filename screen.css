@@ -1,0 +1,16 @@
+*{
+    font-size: x-large;
+}
+body{
+    background: #DDDDDD;
+    font-family: "MS Trebuchet", sans-serif;
+    text-align: center;
+    text-shadow: #fff 0 1px 1px;
+}
+em{
+    font-style: normal;
+    text-transform: uppercase;
+}
+button{
+    padding: 10%;
+}
